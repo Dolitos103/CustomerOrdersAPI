@@ -1,9 +1,9 @@
 package com.customer.orders.service;
 
-import com.customer.orders.entity.TransferModel;
+import com.customer.orders.entity.ClientModel;
 
 public interface ICustomerService {
 
-    TransferModel getFinanceTransactionById(Long id);
+    ClientModel getFinanceTransactionById(Long id);
 
 }

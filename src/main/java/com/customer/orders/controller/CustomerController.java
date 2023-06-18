@@ -1,6 +1,6 @@
 package com.customer.orders.controller;
 
-import com.customer.orders.entity.TransferModel;
+import com.customer.orders.entity.ClientModel;
 import com.customer.orders.model.RequestTransferModel;
 import com.customer.orders.model.ResponseTransferModel;
 import com.customer.orders.service.ICustomerService;
@@ -29,14 +29,14 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TransferModel> getFinanceTransaction(@PathVariable Long id) {
+    public ResponseEntity<ClientModel> getFinanceTransaction(@PathVariable Long id) {
 
-        TransferModel transferModel = customerService.getFinanceTransactionById(id);
+        ClientModel clientModel = customerService.getFinanceTransactionById(id);
 
-        if (ObjectUtils.isEmpty(transferModel)) {
+        if (ObjectUtils.isEmpty(clientModel)) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(transferModel);
+            return ResponseEntity.ok(clientModel);
         }
     }
 

@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:8.0.31
+    volumes:
+      - dbbase:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: client_db
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - '8000:80'
+    environment:
+      - PMA_ARBITRARY=1
+
+  rabbitmq:
+    image: rabbitmq:3.9-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    tty: true
+    stdin_open: true
+    restart: 'no'
+
+volumes:
+  dbbase:

@@ -1,7 +1,7 @@
 package com.customer.orders.service;
 
-import com.customer.orders.entity.TransferModel;
-import com.customer.orders.repository.TransferRepository;
+import com.customer.orders.entity.ClientModel;
+import com.customer.orders.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
  public class CustomerService implements ICustomerService {
 
     @Autowired
-    TransferRepository transferRepository;
+    ClientRepository clientRepository;
 
-    public TransferModel getFinanceTransactionById(Long id){
-        return transferRepository.findById(id).orElse(null);
+    public ClientModel getFinanceTransactionById(Long id){
+        return clientRepository.findById(id).orElse(null);
     }
 
 }
